@@ -32,10 +32,10 @@ namespace vrroom.CubicMusic.CubesMgmt
                         - The properties should be initialized internally within the script, in the start method.
                         - If the property is a prefab, initialize it with a primitive, in the start method.
                         - The properties should not be modifiable from external sources.
-                        - The script should include any necessary logic or code that utilizes these properties.
-                        - If the gameobject has to interact the hand, the hand can be found as a trigger collider on the Hand layer.
+                        - The script should include any necessary logic or code that utilizes these properties.                        
                         - IF and only if the query is about the microphone, you can use vrroom.CubicMusic.Audio.AudioManager.Instance.MicrophoneAnalyzer.CurrentVolume property, range from 0 to 1.
-                        - IF and only if the query is about the music, you can use vrroom.CubicMusic.Audio.AudioManager.Instance.BackgroundMusicAnalyzer.CurrentVolume, range from 0 to 1.        
+                        - IF and only if the query is about the music, you can use vrroom.CubicMusic.Audio.AudioManager.Instance.BackgroundMusicAnalyzer.CurrentVolume, range from 0 to 1.      
+                        - IF and only if the gameobject has to interact the hand, the hand can be found as a trigger collider on the Hand layer. Ignore this if the hand is not involved in the query.
                         Please generate the Unity script meeting these specifications."
         };
 
