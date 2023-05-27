@@ -1,0 +1,12 @@
+<linker>
+
+  <assembly fullname="UnityEngine.CoreModule" />
+  <assembly fullname="UnityEngine" />
+  <assembly fullname="UnityEngine.AudioModule" />
+  <assembly fullname="UnityEngine.InputModule" />
+  <assembly fullname="UnityEngine.PhysicsModule" />
+  <assembly fullname="UnityEngine.UIModule" />
+  <assembly fullname="vrroom.CubicMusic" />
+  <assembly fullname="vrroom.Dynaimic" />
+
+</linker>

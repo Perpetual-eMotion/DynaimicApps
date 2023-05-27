@@ -1,0 +1,20 @@
+{
+    "name": "vrroom.Dynaimic",
+    "rootNamespace": "",
+    "references": [
+        "GUID:3248779d86bd31747b5d2214f30b01ac",
+        "GUID:82ccc7faf9a0ce8478430010c631dc89",
+        "GUID:842c85e8e7f0d24438e45dd7e05434da",
+        "GUID:f656afbb727c4e8418169dff952bc121",
+        "GUID:75b58d7930f6c0f40aee3135b22e732d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
