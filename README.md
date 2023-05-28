@@ -4,7 +4,11 @@ This repository is meant to hold the code of the Dynaimic Apps Engine, a system 
 The purpose is to have artificial intelligence write scripts based on certain (direct or indirect) user inputs, and have those scripts loaded at runtime into the application. It is like the application mods itself at runtime using the power of artificial intelligence.
 The long term vision is having applications that are completely managed by artificial intelligence, that code their behaviour at runtime on the fly, so that to be able to adapt to the user that is experiencing them (e.g. a horror game may create a new type of enemy that scares in particular the user that is playing the game)
 
-You can watch a video that explains the high-level view of the project, together with some in-game footage, here: [VIDEO LINK]
+You can watch a video that explains the high-level vision of the project, together with some in-game footage, here:  
+[![DynaimicApps Project](https://img.youtube.com/vi/yEaqyvl8A1U/0.jpg)](https://www.youtube.com/watch?v=yEaqyvl8A1U)
+
+# Project Status
+The provided project is a prototype meant to verify that the long term vision of applications that generate their logic on the fly with the power of artificial intelligence is possible. Arriving to a full implementation would require much more work. But I guess that in 5 to 10 years we can get there. ([Here a link to get the joke about the 5 to 10 years](https://skarredghost.com/2022/11/11/the-7-laws-present-metaverse/))
 
 # Project Structure
 The project is structured in a modular way and includes both the Dynaimic Apps Engine and a sample application that uses it, called CubicMusic. Currently the repository contains both the engine and the demo in a single Unity project, for simplicity. But the project is structed in such a way that you can easily detach the engine from the rest of the experience.
@@ -14,12 +18,15 @@ All the most relevant files are in folders that begin with underscore "_", while
 - _DynaimicEngine: contains the Dynaimic Apps Engine, which is the core of the project. It contains the scripts that make you create runtime logic powered by AI, that let an application mod itself on the fly. You can export this folder as a Unity package and use it in other projects.
 - _CubicMusic: contains the sources of the CubicMusic application, which is a sample application that uses the Dynaimic Apps Engine to let you spawn cubes and assign them a custom logic. Inside this folder there are also the scenes that you can build to test the application.
 
+Both folders correspond to two Assembly Definitions, so that you can easily detach them from the rest of the project, and better dependency management is guaranteed.
+
 The scenes that you can use to test the application are all in the folder _CubicMusic/Scenes.
 
 ## Architecture and deep dive on the project technicalities
 I have made a draw.io architecture of the project, that you can find at this link: [Architecture](https://vrroomproject-my.sharepoint.com/:u:/g/personal/tony_vrroom_world/Ea-55DTSc3tPrjwlDUvtEi8BUPLLWoPlp3d83EokGh2kGA?e=f2W5he) (You can use app.diagrams.net to open it)
 
-If you want a detailed explanation of how the project is built, you can watch this video: [LINK]
+If you want a detailed explanation of how the project is designed, you can watch a very long technical deep dive here:
+[![DynaimicApps Configuration](https://img.youtube.com/vi/fN6QuwTwoOM/0.jpg)](https://www.youtube.com/watch?v=fN6QuwTwoOM)
 
 I decided to make a video because writing everything that I explained there would require a huge wall of text, that no one would read anyway :P.
 
@@ -45,7 +52,7 @@ The project has been stripped away from all the dependencies so that it can be u
 
 (I have already added some of the depencies via the package manager. For instance, you don't need to import Com.openai.unity, which is a tool that you can find at this repository: https://github.com/RageAgainstThePixel/com.openai.unity)
 1. Open the project in Unity. Unity will tell you there are compilation errors. This is because the project is missing a lot of needed dependencies. Just Ignore the warning and go on. We are brave, after all :)
-2. The project opens, and a popup should ask you to import the TextMeshPro package. Click on "Import TMP Essentials".
+2. The project opens, and a popup should ask you to import the TextMeshPro package. Click on "Import TMP Essentials". If you don't see this popup, open a scene of the project to make it appear. For instance, you can open the scene Assets/_CubicMusic/Scenes/CubicMusicQuestMR to make it appear
 3. Import the Roslyn C# Compiler. This is the only paid asset that you need. You can buy it here https://assetstore.unity.com/packages/tools/integration/roslyn-c-runtime-compiler-142753 for around €20. Then import it inside your project. If you want you can skip importing the Examples folder, we don't need it.
 4. Import dotnow. This is an opensource asset that you can find here https://github.com/scottyboy805/dotnow-interpreter/releases. Import it inside the project.
 5. Import the Oculus Integration plugin. Even if you don't use VR, it is needed to make the project to compile (in future versions, I can make things more modular, but for now bear with my laziness). You can find it here: https://assetstore.unity.com/packages/tools/integration/oculus-integration-82022 . When importing it, import only the VR directory of the package, plus the OculusProjectConfig.asset file, to avoid cluttering your project.
@@ -60,10 +67,13 @@ If you plan to use Mixed Reality on Quest, there are additional steps to perform
 
 12. Open the scene CubicMusicQuestMR and select the OVRCameraRig gameobject. In the inspector, look for Quest Features/General, check the entry "Requires System Keyboard", and then select "Supported" for the entry "Passthrough Support".
 13. On the same gameobject, look for Insight Passthrough (it's down the options of the OVRCameraRig) and check Enable Passthrough
+14. Switch the build target to Android, which is the platform used by the Quest
 
 At this point, the project should be ready to be built. Congratulations, you survived the long installation process!
 
-If something is not clear in this instructions or you prefer watching this procedure made live for you, you can watch this installation video of mine at this link: [VIDEO LINK]
+If something is not clear in this instructions or you prefer watching this procedure made live for you, you can watch this installation video here:
+
+[![DynaimicApps Configuration](https://img.youtube.com/vi/Kzt_uL7-8_U/0.jpg)](https://www.youtube.com/watch?v=Kzt_uL7-8_U)
 
 ## Exporting the Dynaimics Engine
 If you want to export the dynamics engine to use it in your own project, you can do it by following these steps:
@@ -72,10 +82,12 @@ If you want to export the dynamics engine to use it in your own project, you can
 - Add the OpenAI bridge to your project (you can find the installation instructions here: https://github.com/RageAgainstThePixel/com.openai.unity)
 - Add to your project the same dependencies as specified above, with the exact same procedure, with the exception of TextMeshPro and Oculus Integration (you don't need them)
 - Use the GenerativeLogicManager class to query the AI and have a script generated at runtime depending on your prompt
-- If you need them, take with you also some scripts from the _CubicMusic folder that you may use in your project (e.g. to add sound-reactiveness). My suggestion is to take the CubicMusicManager and modify it according to your needs. Don't forget to add to it the Assembly references that are needed by the generated scripts, otherwise the generated scripts won't have the dependencies to run. See the documentation of the Roslyn C# Compiler for more info, or take inspiration from the code of the sample scenes for that
+- If you need them, take with you also some scripts from the _CubicMusic folder that you may use in your project (e.g. to add sound-reactiveness). My suggestion is to take the CubicMusicManager and modify it according to your needs. Don't forget in your scene to add to the logic generation class (the CubicMusicManager in the sample) the Assembly references that are needed by the generated scripts, otherwise the generated scripts won't have the dependencies to run. See the documentation of the Roslyn C# Compiler for more info, or take inspiration from the code of the sample scenes for that
 - For now, because of a bug in Unity 2021, you may need to set your IL2CPP runtime to Debug in the Project Settings, or the build process of the project may take all your RAM and then fail
 
 In general, if something is not working in your project, check how things have been done in the CubicMusic one (either in the Project Settings or in the sample scenes).
+
+It may be also interesting for you to read the Roslyn C# package documentation (which is inside the package itself) and the integration guide between dotnow and Roslyn C# Compiler, which is available at this [link](https://github.com/scottyboy805/dotnow-interpreter/wiki/Roslyn-C%23-Integration).
 
 # Build platforms & settings
 The project can be made to work both on flatscreen PC and on VR/MR headsets. Let me tell you how to choose the settings that you prefer. Be careful that the default settings are meant to build for the Mixed Reality mode on Meta Quest Pro, which may not be what you want (but it's the coolest of the options!).
@@ -144,7 +156,7 @@ If in doubt, you can try with these prompts:
 - "Give it gravity and make it fall. Add a rigidbody if needed"
 
 ### Controls
-- On flatscreen PC, you move the preview cube with the WASD keys, and you spawn a cube with the Spacebar or mouse click. You can then do a camera view by pressing the right mouse button and use again the WASD keys to move the camera around
+- On flatscreen PC, you move the preview cube with the WASDQE keys, and you spawn a cube with the Spacebar or mouse click. You can then do a camera view by pressing the right mouse button and use again the WASDQE keys to move the camera around
 - On VR/MR devices, you have the preview cube attached to your right hand, and you spawn a cube by pressing the trigger of the right controller.
 
 ### UI
@@ -182,7 +194,7 @@ If in doubt, you can try with these prompts:
 - "I'm sad"
 
 ### Controls
-- On flatscreen PC, you can then do a camera view by pressing the right mouse button and use  the WASD keys to move the camera around
+- On flatscreen PC, you can then do a camera view by pressing the right mouse button and use  the WASDQE keys to move the camera around
 - On VR/MR devices, you can just look around to explore the generation made by the AI. No movement is currently implemented (but it should be trivial to do)
 
 ### UI
@@ -201,6 +213,7 @@ The right panel contains:
 # Known issues
 There are some known issues with the application:
 - There is no way to reset a scene, the only way is to restart the application
+- Cubes are all generated directly into the scene, while probably they should be grouped in groups not to make the scene to cluttered at runtime
 
 There are some known problems with the AI in the experience:
 - I am not an expert with AI prompts (to be honest, I've just started!), so the prompts I've written may not be optimal. If you have suggestions, please let me know!
@@ -216,6 +229,7 @@ The build for IL2CPP has many issues:
 
 The build for Mixed Reality has an additional issue:
 - When the Meta Quest system keyboard appears on screen, there is no way to make it disappear. This is a bug related to the interaction between Unity and the Quest runtime. Do not use the written prompt text field, but only vocal commands. If by chance you have clicked on the text field, press the power button on the headset and make it go in standby, then press it again and make it on again. The keyboard should have disappeared
+- When the application runs, it seems that the Quest runtime is not that happy because some weird "tearing" effect happens in front of your eyes from time to time
 
 In general, this project is still a prototype, and there are many things that are broken or that can be improved. Take it as a starting point and not a final destination.
 
@@ -238,7 +252,7 @@ I have developed this plugin in my free time, but still as part of my efforts in
 
 We're releasing this for free, to be helpful for the community, to build something together with the community. The value of sharing is strong in us.
 
-We'll try to maintain this plugin as much as we can and to answer your questions, but we have a lot of work to do, so we cannot guarantee that we'll be able to fix all the issues that may arise. We'll try to do our best.
+We'll try to maintain this plugin as much as we can and to answer your questions, but we have a lot of work to do for our product, so we cannot guarantee that we'll be able to continue the project or fix all the issues that may arise. We'll try to do our best.
 
 Have fun :)
 
