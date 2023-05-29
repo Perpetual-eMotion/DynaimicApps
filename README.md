@@ -26,6 +26,7 @@ The scenes that you can use to test the application are all in the folder _Cubic
 I have made a draw.io architecture of the project, that you can find at this link: [Architecture](https://vrroomproject-my.sharepoint.com/:u:/g/personal/tony_vrroom_world/Ea-55DTSc3tPrjwlDUvtEi8BUPLLWoPlp3d83EokGh2kGA?e=f2W5he) (You can use app.diagrams.net to open it)
 
 If you want a detailed explanation of how the project is designed, you can watch a very long technical deep dive here:
+
 [![DynaimicApps Configuration](https://img.youtube.com/vi/fN6QuwTwoOM/0.jpg)](https://www.youtube.com/watch?v=fN6QuwTwoOM)
 
 I decided to make a video because writing everything that I explained there would require a huge wall of text, that no one would read anyway :P.
@@ -132,6 +133,8 @@ My final suggestion is to use Mono for your tests, unless you don't need to use 
 # How to use the application
 The application offers two different experiences, that can be enjoyed both on flatscreen PC or on MR/VR devices.
 
+[![Video trailer](https://img.youtube.com/vi/YN8gq18MRUI/0.jpg)](https://www.youtube.com/watch?v=YN8gq18MRUI)
+
 ## CubicMusic
 The scenes CubicMusicFlat, CubicMusicVR, and CubicMusicQuestMR all revolve around the original Cubic Music scene. The idea is to have a sandbox where you can generate cubes and give them whatever logic you want. The application doesn't have any scripts to assign to the cube. It's the user that says a sentence (or writes it) about what he/she wants the cube to do, and then the system will generate automatically the logic to make it happen through generative Artificial Intelligence (OpenAI to be exact) and load it in the application runtime. This means that the application modifies itself to add the logic that the user wants.
 
@@ -172,6 +175,12 @@ The right panel contains:
 - The "Input" field, where you can write your prompt
 - The "Send" button, that sends the prompt to the AI engine
 
+### In-game footage
+Here you are some minutes of gameplay with the experience:
+
+[![CubicMusic gameplay](https://img.youtube.com/vi/6HDy6NF2GZY/0.jpg)](https://www.youtube.com/watch?v=6HDy6NF2GZY)
+
+
 ## CubicMusicEmotional
 The scenes CubicMusicEmotionalFlat and CubicMusicEmotionalVR revolve around a more high-level concept: the possibility of letting the AI generate both the cubes and their logic depeding on your mood. This is a step forward towards the vision of having a fully reactive application that auto-codes itself depending on the status of the user.
 
@@ -209,6 +218,11 @@ The right panel contains:
 - A microphone icon, that you can press to start recording your voice prompt and press again to stop recording. Voice prompts are automatically sent and do not require you to press the "Send" button
 - The "Input" field, where you can write your prompt
 - The "Send" button, that sends the prompt to the AI engine
+
+### In-game footage
+Here you are some minutes of gameplay with the experience:
+
+[![CubicMusic Emotional gameplay](https://img.youtube.com/vi/QSjK-xouulk/0.jpg)](https://www.youtube.com/watch?v=QSjK-xouulk)
 
 # Known issues
 There are some known issues with the application:
